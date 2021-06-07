@@ -1,0 +1,9 @@
+ID,EN,CN
+menu_newGame,New Game,新遊戲
+menu_continue,Continue,繼續遊戲
+menu_options,Options,選項
+menu_quit,Quit,退出
+options_music,Music :         ,音樂 :        
+options_sfx,SFX :        ,音效 :        
+options_language,Language :             ,語言 :        
+options_backtoMenu,Back to Menu,回到主選單
