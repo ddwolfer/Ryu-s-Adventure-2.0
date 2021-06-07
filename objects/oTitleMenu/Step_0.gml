@@ -25,13 +25,13 @@ switch(screen){
 	#endregion
 	
 	case menu_screen.options:
-	var MenuFont_X = view_get_wport(view_surface_id[0]) / 2 
-	var MenuFont_Y = view_get_hport(view_surface_id[0]) * 3 / 5 
-	var MenuFontSpaceY = view_get_hport(view_surface_id[0]) / 20
+		var MenuFont_X = view_get_wport(view_surface_id[0]) / 2 
+		var MenuFont_Y = view_get_hport(view_surface_id[0]) * 3 / 5 
+		var MenuFontSpaceY = view_get_hport(view_surface_id[0]) / 20
 		
-	vol_line_length = 180
-	vol_line_X = 60
-	#region //option screen
+		vol_line_length = 180
+		vol_line_X = 60
+		#region //option screen
 		switch( OptionsButtonGroup[?"cursor"] ){
 			case 0: //music
 				#region music controll code
@@ -62,7 +62,6 @@ switch(screen){
 				}
 				#endregion
 				
-				
 				#endregion
 				break
 			case 1: //SFX
@@ -88,6 +87,9 @@ switch(screen){
 						(mouse_y>=MenuFont_Y+MenuFontSpaceY-sprite_get_height(sVolPicker) && mouse_y<=MenuFont_Y+MenuFontSpaceY+sprite_get_height(sVolPicker))){
 						set_sound_volume( (mouse_x - MenuFont_X - vol_line_X)/vol_line_length)
 					}
+				}
+				if (mouse_check_button_released(mb_left) && SFXPressed){
+					SFXPressed = false
 				}
 				if (mouse_check_button_released(mb_left) && SFXPressed){
 					SFXPressed = false
@@ -133,11 +135,7 @@ switch(screen){
 		}
 		break
 		
-	
-	if (mouse_check_button_released(mb_left) && SFXPressed){
-		SFXPressed = false
-	}
-	#endregion
+		#endregion
 	
 }
 
