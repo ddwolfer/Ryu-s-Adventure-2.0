@@ -42,7 +42,7 @@ var OptionsFont_Y = view_get_hport(view_surface_id[0]) * 3 / 5
 var OptionsFontSpaceY = view_get_hport(view_surface_id[0]) / 20
 var OptionsFontSpaceX = view_get_wport(view_surface_id[0]) / 5
 
-for( var i = 0 ; i < array_length(options) ; i++){
+for( var i = 0 ; i < array_length(options)-1 ; i++){
 	show_debug_message("CREATE:"+string(options[i]))
 	OptionsButton[i] = button_box_init( 
 		options[i], 
@@ -53,6 +53,14 @@ for( var i = 0 ; i < array_length(options) ; i++){
 		
 	)
 }
+OptionsButton[array_length(options)-1] = button_box_init( 
+		options[array_length(options)-1], 
+		OptionsFont_X - OptionsFontSpaceX, 
+		OptionsFont_Y + array_length(options) * OptionsFontSpaceY - (OptionsFontSpaceY/2), 
+		OptionsFont_X + OptionsFontSpaceX, 
+		OptionsFont_Y + array_length(options) * OptionsFontSpaceY + (OptionsFontSpaceY/2)
+	)
+
 OptionsButtonGroup = button_group_init(OptionsButton[0], OptionsButton[1], OptionsButton[2], OptionsButton[3], 1)
 
 MusicPressed = false
