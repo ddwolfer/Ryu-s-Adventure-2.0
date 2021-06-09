@@ -1,7 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-
 #region //checkout mouse and keyboard priority
 if( keyboard_check_pressed( vk_anykey ) ){
 	MOUSE_HIDE = true
