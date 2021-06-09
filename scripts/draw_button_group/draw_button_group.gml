@@ -44,6 +44,7 @@ function draw_button_group(argument0, argument1, argument2, MoveSound) {
 			var Button = ButtonGroup[i]
 			//mouse
 			if( MX >= Button[?"x1"] && MX <=Button[?"x2"] && MY >= Button[?"y1"] && MY <= Button[?"y2"]){
+				if(i!= group[?"cursor"]){audio_play_sound(sdMenu,2,false)}
 				group[?"cursor"] = i
 			}
 			ButtonGroup[i] = Button
