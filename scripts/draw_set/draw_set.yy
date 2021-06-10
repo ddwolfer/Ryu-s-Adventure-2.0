@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Dialog",
-    "path": "folders/Scripts/Dialog.yy",
+    "name": "Draw",
+    "path": "folders/Scripts/Draw.yy",
   },
   "resourceVersion": "1.0",
   "name": "draw_set",

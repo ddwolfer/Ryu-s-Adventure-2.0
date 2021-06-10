@@ -3,7 +3,8 @@
 enum LOCALE {EN , CN}
 
 global.locale = LOCALE.EN
-globalvar MOUSE_HIDE;
+globalvar MOUSE_HIDE, IN_DIALOG;
 
 MOUSE_HIDE = false
+IN_DIALOG = false
 mxPrevoius = 0
