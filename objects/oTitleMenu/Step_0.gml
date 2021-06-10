@@ -33,105 +33,72 @@ switch(screen){
 		vol_line_X = 30
 		#region //option screen
 		switch( OptionsButtonGroup[?"cursor"] ){
-			case 0: //music
+			case 0: //master
+				#region master controll code
+				masterSlideBar[?"enable"] = true
+				//controller
+				masterSlideBar = slidebar_controller(masterSlideBar)
+				//get value from slidebar
+				set_master_volume( masterSlideBar[?"value"] )
+				//如果還在調整該slidebar 不要移動按鈕位置
+				if( masterSlideBar[?"MousePressed"] ){
+					OptionsButtonGroup[?"lock"] = true
+				}else{
+					OptionsButtonGroup[?"lock"] = false
+				}
+				
+				masterSlideBar[?"enable"] = false
+				
+				#endregion
+				break
+			case 1: //music
 				#region music controll code
-				if(leftMenu){ //decrease
-					audio_play_sound(sdMenu, 2, false)
-					change_music_volume(-0.1)
-				}else if(rightMenu){ //increase
-					audio_play_sound(sdMenu, 2, false)
-					change_music_volume(+0.1)
-				}
-				//滑鼠調整
-				#region
-				if(mouse_check_button_pressed(mb_left)){
-					if((mouse_x >= MenuFont_X && mouse_x <= MenuFont_X+vol_line_length)&&
-						(mouse_y>=MenuFont_Y-sprite_get_height(sVolPicker) && mouse_y<=MenuFont_Y+sprite_get_height(sVolPicker))){
-						MusicPressed = true
-					}
+				musicSlideBar[?"enable"] = true
+				//controller
+				musicSlideBar = slidebar_controller(musicSlideBar)
+				//get value from slidebar
+				set_music_volume( musicSlideBar[?"value"] )
+				//如果還在調整該slidebar 不要移動按鈕位置
+				if( musicSlideBar[?"MousePressed"] ){
+					OptionsButtonGroup[?"lock"] = true
+				}else{
+					OptionsButtonGroup[?"lock"] = false
 				}
 				
-				if (MusicPressed){
-					var setVol = (mouse_x - MenuFont_X )/vol_line_length
-					if(setVol > 1.0){setVol = 1.0}
-					if(setVol < 0){setVol = 0.0}
-					set_music_volume( setVol )
-				}
-				if (mouse_check_button_released(mb_left) && MusicPressed){
-					MusicPressed = false
-				}
-				#endregion
-				
+				musicSlideBar[?"enable"] = false
 				#endregion
 				break
-			case 1: //SFX
+			case 2: //SFX
 				#region SFX controll code
-				if(leftMenu){ //decrease
-					audio_play_sound(sdMenu, 2, false)
-					change_sound_volume(-0.1)
-				}else if(rightMenu){ //increase
-					audio_play_sound(sdMenu, 2, false)
-					change_sound_volume(0.1)
-				}
-				//滑鼠調整
-				#region
-				if(mouse_check_button_pressed(mb_left)){
-					if((mouse_x >= MenuFont_X && mouse_x <= MenuFont_X+vol_line_length)&&
-						(mouse_y>=MenuFont_Y+MenuFontSpaceY-sprite_get_height(sVolPicker) && mouse_y<=MenuFont_Y+MenuFontSpaceY+sprite_get_height(sVolPicker))){
-						SFXPressed = true
-					}
+				SFXSlideBar[?"enable"] = true
+				//controller
+				SFXSlideBar = slidebar_controller(SFXSlideBar)
+				//get value from slidebar
+				set_sound_volume( SFXSlideBar[?"value"] )
+				//如果還在調整該slidebar 不要移動按鈕位置
+				if( SFXSlideBar[?"MousePressed"] ){
+					OptionsButtonGroup[?"lock"] = true
+				}else{
+					OptionsButtonGroup[?"lock"] = false
 				}
 				
-				if (SFXPressed){
-					var setVol = (mouse_x - MenuFont_X )/vol_line_length
-					if(setVol > 1.0){setVol = 1.0}
-					if(setVol < 0){setVol = 0.0}
-					set_sound_volume( setVol )
-					
-				}
-				if (mouse_check_button_released(mb_left) && SFXPressed){
-					SFXPressed = false
-				}
-				if (mouse_check_button_released(mb_left) && SFXPressed){
-					SFXPressed = false
-				}
-				#endregion
+				SFXSlideBar[?"enable"] = false
 				#endregion
 				break
-			case 2: //Language
+			case 3: //Language
 				#region Language controll code
-				if(leftMenu){ //decrease
-					audio_play_sound(sdMenu, 2, false)
-					global.locale = max(0,global.locale - 1)
-				}else if(rightMenu){ //increase
-					audio_play_sound(sdMenu, 2, false)
-					global.locale = min(array_length(Language_option),global.locale + 1)
-				}
-				//滑鼠選擇
-				
-				for(var i = 0; i < array_length(Language_option) ; i++){
-					if(mouse_check_button_pressed(mb_left)){
-						if(( mouse_x >= MenuFont_X + i*100 && mouse_x < MenuFont_X + (i+1)*145 )&&
-							(mouse_y >= MenuFont_Y + MenuFontSpaceY*2 - MenuFontSpaceY/2 && MenuFont_Y + MenuFontSpaceY*2 + MenuFontSpaceY/2)){
-							global.locale = i	
-							audio_play_sound(sdMenuComfirm,2,false)
-						}
-					}
-					
-				}
-				
+				global.locale = LanguageButtonGroup[?"cursor"]
 				#endregion
-				
 				break
 				
 			default:
 				break
 		}
 		
-		if( button_group_click(OptionsButtonGroup) == 3 ){ // Back Button
+		if( button_group_click(OptionsButtonGroup) == 4 ){ // Back Button
 			audio_play_sound(sdMenuComfirm,2,false)
 			//code
-			saveSystemData(SystemFileName,global.locale,MUSIC_VOLUME,SOUND_VOLUME)
+			saveSystemData(SystemFileName,global.locale,MASTER_VOLUME,MUSIC_VOLUME,SOUND_VOLUME)
 			screen = menu_screen.main
 		}
 		break

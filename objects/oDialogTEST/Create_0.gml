@@ -15,7 +15,7 @@ character_index = 0
 
 dialog_init()
 
-dialog_add(sRyuDialog, "Hey!  it's a test for English")
+dialog_add(sRyuDialog, "Hey!  it's a test for\n English")
 dialog_add(sRyuDialog, "安安! 這是中文測試 喔!")
 
 dialog_reset()

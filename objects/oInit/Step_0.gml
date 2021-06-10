@@ -11,17 +11,11 @@ if( file_exists( SystemFileName ) ){ // load system file
 	var _string = buffer_read(_buffer, buffer_string)
 	
 	var _loadSystemFile = json_parse( _string)
-	global.locale = _loadSystemFile[0].Language
-	MUSIC_VOLUME = _loadSystemFile[0].Music
-	SOUND_VOLUME = _loadSystemFile[0].Effects 
+	global.locale = variable_struct_exists(_loadSystemFile[0],"Language") ? _loadSystemFile[0].Language : 0 
+	MASTER_VOLUME = variable_struct_exists(_loadSystemFile[0],"Master") ?  _loadSystemFile[0].Master : 1.0 
+	MUSIC_VOLUME = variable_struct_exists(_loadSystemFile[0],"Music") ? _loadSystemFile[0].Music : 1.0
+	SOUND_VOLUME =variable_struct_exists(_loadSystemFile[0],"Effects" ) ? _loadSystemFile[0].Effects : 1.0
 	
-}else{ //create a system file
-	saveSystemData(SystemFileName,0,1.0,1.0)
-	
-	//default setting
-	global.locale = 0
-	MUSIC_VOLUME = 1.0
-	SOUND_VOLUME = 1.0
 }
 
 

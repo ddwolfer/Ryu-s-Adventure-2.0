@@ -9,10 +9,11 @@ switch(screen){
 	case menu_screen.options:
 		//左側文字 txt left side
 		draw_set_font(MenuFont)
-		draw_set_halign(fa_center)
+		draw_set_halign(fa_right)
 		draw_set_valign(fa_center)
 		draw_button_group(OptionsButtonGroup,c_gray,c_white, sdMenu)
 		//右側文字 text right side
+		#region 位置設定
 		draw_set_font(MenuFont)
 		draw_set_halign(fa_left)
 		draw_set_valign(fa_center)
@@ -20,24 +21,36 @@ switch(screen){
 		var MenuFont_Y = view_get_hport(view_surface_id[0]) * 3 / 5 
 		var MenuFontSpaceY = view_get_hport(view_surface_id[0]) / 20
 		
-		vol_line_length = 180
 		vol_line_X = 30
-		
+		#endregion
+		#region master
 		if(OptionsButtonGroup[?"cursor"]==0){draw_set_color(c_white)}else{draw_set_color(c_gray)}		
-		draw_text(MenuFont_X+vol_line_X+vol_line_length, MenuFont_Y , string( int64(MUSIC_VOLUME*100) )) //music vol
-		draw_line_width(MenuFont_X ,MenuFont_Y,MenuFont_X + vol_line_length,MenuFont_Y,4)
-		draw_sprite(sVolPicker,0, MenuFont_X +vol_line_length*MUSIC_VOLUME ,MenuFont_Y)
+		draw_text(MenuFont_X+vol_line_X+SlideBarLength, MenuFont_Y , string( int64(MASTER_VOLUME*100) )) //music vol
 		
-		if(OptionsButtonGroup[?"cursor"]==1){draw_set_color(c_white)}else{draw_set_color(c_gray)}	
-		draw_text(MenuFont_X+vol_line_X+vol_line_length, MenuFont_Y + MenuFontSpaceY , string( int64(SOUND_VOLUME*100) )) //SFX vol
-		draw_line_width(MenuFont_X ,MenuFont_Y + MenuFontSpaceY, MenuFont_X + vol_line_length,MenuFont_Y + MenuFontSpaceY,4)
-		draw_sprite(sVolPicker,0, MenuFont_X + vol_line_length*SOUND_VOLUME ,MenuFont_Y + MenuFontSpaceY)
+		draw_slidebar(masterSlideBar)
+		#endregion
+		#region music
+		if(OptionsButtonGroup[?"cursor"]==1){draw_set_color(c_white)}else{draw_set_color(c_gray)}		
+		draw_text(MenuFont_X+vol_line_X+SlideBarLength, MenuFont_Y + MenuFontSpaceY, string( int64(MUSIC_VOLUME*100) )) //music vol
 		
+		draw_slidebar(musicSlideBar)
+		
+		#endregion
+		#region SFX
 		if(OptionsButtonGroup[?"cursor"]==2){draw_set_color(c_white)}else{draw_set_color(c_gray)}	
-		for(var i = 0; i < array_length(Language_option) ; i++){
-			if(global.locale==i && OptionsButtonGroup[?"cursor"]==2){draw_set_color(c_white)}else{draw_set_color(c_gray)}	
-			draw_text(MenuFont_X + i*145,MenuFont_Y + MenuFontSpaceY*2,Language_option[i])
-		}
+		draw_text(MenuFont_X+vol_line_X+SlideBarLength, MenuFont_Y + MenuFontSpaceY*2 , string( int64(SOUND_VOLUME*100) )) //SFX vol
 		
+		draw_slidebar(SFXSlideBar)
+		
+		#endregion
+		
+		#region 語言
+		if(OptionsButtonGroup[?"cursor"]==3){
+			draw_set_color(c_white)
+			LanguageButtonGroup[?"enable"] = true
+		}else{LanguageButtonGroup[?"enable"] = false}	
+		draw_set_halign(fa_left)
+		draw_button_group(LanguageButtonGroup,c_gray,c_white, sdMenu)
+		#endregion
 		break
 }

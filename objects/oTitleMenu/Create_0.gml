@@ -32,43 +32,52 @@ for( var i = 0 ; i < array_length(menu) ; i++){
 MenuButtonGroup = button_group_init(MenuButton[0], MenuButton[1], MenuButton[2], MenuButton[3], 1)
 
 //options txt
-options[0] = "options_music"
-options[1] = "options_sfx"
-options[2] = "options_language"
-options[3] = "options_backtoMenu"
+options[0] = "options_master"
+options[1] = "options_music"
+options[2] = "options_sfx"
+options[3] = "options_language"
+options[4] = "options_backtoMenu"
 
 var OptionsFont_X = view_get_wport(view_surface_id[0]) / 2 
 var OptionsFont_Y = view_get_hport(view_surface_id[0]) * 3 / 5 
 var OptionsFontSpaceY = view_get_hport(view_surface_id[0]) / 20
 var OptionsFontSpaceX = view_get_wport(view_surface_id[0]) / 5
-
-for( var i = 0 ; i < array_length(options)-1 ; i++){
+//init the options button
+for( var i = 0 ; i < array_length(options) ; i++){
 	show_debug_message("CREATE:"+string(options[i]))
+	var _i = i
+	if( i == array_length(options)-1  ){_i+=1}
 	OptionsButton[i] = button_box_init( 
 		options[i], 
 		OptionsFont_X - OptionsFontSpaceX, 
-		OptionsFont_Y + i * OptionsFontSpaceY - (OptionsFontSpaceY/2), 
+		OptionsFont_Y + _i * OptionsFontSpaceY - (OptionsFontSpaceY/2), 
 		OptionsFont_X + OptionsFontSpaceX, 
-		OptionsFont_Y + i * OptionsFontSpaceY + (OptionsFontSpaceY/2)
-		
+		OptionsFont_Y + _i * OptionsFontSpaceY + (OptionsFontSpaceY/2)
 	)
 }
-OptionsButton[array_length(options)-1] = button_box_init( 
-		options[array_length(options)-1], 
-		OptionsFont_X - OptionsFontSpaceX, 
-		OptionsFont_Y + array_length(options) * OptionsFontSpaceY - (OptionsFontSpaceY/2), 
-		OptionsFont_X + OptionsFontSpaceX, 
-		OptionsFont_Y + array_length(options) * OptionsFontSpaceY + (OptionsFontSpaceY/2)
-	)
+OptionsButtonGroup = button_group_init(OptionsButton[0], OptionsButton[1], OptionsButton[2], OptionsButton[3], OptionsButton[4], 1)
 
-OptionsButtonGroup = button_group_init(OptionsButton[0], OptionsButton[1], OptionsButton[2], OptionsButton[3], 1)
+SlideBarLength = 180
+masterSlideBar = slidebar_init(OptionsFont_X,OptionsFont_X+SlideBarLength,OptionsFont_Y,9,4)
+masterSlideBar[?"value"] = MASTER_VOLUME
 
-MusicPressed = false
-SFXPressed = false
+musicSlideBar = slidebar_init(OptionsFont_X,OptionsFont_X+SlideBarLength,OptionsFont_Y + OptionsFontSpaceY,9,4)
+musicSlideBar[?"value"] = MUSIC_VOLUME
+
+SFXSlideBar = slidebar_init(OptionsFont_X,OptionsFont_X+SlideBarLength,OptionsFont_Y + OptionsFontSpaceY*2,9,4)
+SFXSlideBar[?"value"] = SOUND_VOLUME
 
 //Language setting
 Language_option[0] = "English"
 Language_option[1] = "繁體中文"
+
+Langeage_Space = 120
+
+LanguageButton[0] = button_box_init("English",MenuFont_X ,MenuFont_Y + MenuFontSpaceY*3 - (OptionsFontSpaceY/2), MenuFont_X + Langeage_Space, MenuFont_Y + MenuFontSpaceY*3 + (OptionsFontSpaceY/2),"left")
+LanguageButton[1] = button_box_init("繁體中文",MenuFont_X + Langeage_Space,MenuFont_Y + MenuFontSpaceY*3 - (OptionsFontSpaceY/2), MenuFont_X +Langeage_Space*2, MenuFont_Y + MenuFontSpaceY*3 + (OptionsFontSpaceY/2),"left")
+
+LanguageButtonGroup = button_group_init(LanguageButton[0], LanguageButton[1], 0)
+LanguageButtonGroup[?"enable"] = false
 
 //variable for controll view
 enum menu_screen { //which page now
