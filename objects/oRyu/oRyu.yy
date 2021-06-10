@@ -1,13 +1,16 @@
 {
   "spriteId": {
-    "name": "sBlock",
-    "path": "sprites/sBlock/sBlock.yy",
+    "name": "sRyuIdle",
+    "path": "sprites/sRyuIdle/sRyuIdle.yy",
   },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "oParentMain",
+    "path": "objects/oParentMain/oParentMain.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -24,11 +27,11 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "Ryu",
+    "path": "folders/Objects/Ryu.yy",
   },
   "resourceVersion": "1.0",
-  "name": "oSolid",
+  "name": "oRyu",
   "tags": [],
   "resourceType": "GMObject",
 }

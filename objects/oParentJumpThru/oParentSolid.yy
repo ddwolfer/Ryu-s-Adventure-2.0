@@ -1,8 +1,5 @@
 {
-  "spriteId": {
-    "name": "sBlock",
-    "path": "sprites/sBlock/sBlock.yy",
-  },
+  "spriteId": null,
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
@@ -24,11 +21,11 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "Parents",
+    "path": "folders/Objects/Parents.yy",
   },
   "resourceVersion": "1.0",
-  "name": "oSolid",
+  "name": "oParentSolid",
   "tags": [],
   "resourceType": "GMObject",
 }
