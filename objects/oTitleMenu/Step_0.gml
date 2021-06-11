@@ -25,11 +25,7 @@ switch(screen){
 	#endregion
 	
 	case menu_screen.options:
-		var MenuFont_X = view_get_wport(view_surface_id[0]) / 2 
-		var MenuFont_Y = view_get_hport(view_surface_id[0]) * 3 / 5 
-		var MenuFontSpaceY = view_get_hport(view_surface_id[0]) / 20
 		
-		vol_line_length = 180
 		vol_line_X = 30
 		#region //option screen
 		switch( OptionsButtonGroup[?"cursor"] ){
@@ -87,7 +83,9 @@ switch(screen){
 				break
 			case 3: //Language
 				#region Language controll code
+				
 				global.locale = LanguageButtonGroup[?"cursor"]
+				
 				#endregion
 				break
 				
