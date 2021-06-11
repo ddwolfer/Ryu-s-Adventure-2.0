@@ -4,5 +4,5 @@ function set_music_volume(){
 	var vol = argument[0];
 
 	MUSIC_VOLUME = vol;
-	audio_group_set_gain(music, MUSIC_VOLUME*0.2, 0);
+	audio_group_set_gain(music, MUSIC_VOLUME*MASTER_VOLUME, 0);
 }

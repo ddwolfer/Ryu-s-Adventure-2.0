@@ -7,7 +7,7 @@ if( place_meeting(x,y,oPlayer) ){
 }
 
 if(start_dialog){
-	show_debug_message("對話長度:"+string(string_length(dialog_get_text())))
+	show_debug_message("對話長度:"+string(string_length(dialog_get_text()))+"|delta time:"+string(delta_time))
 	position_bar_y = lerp(position_bar_y, position_bar_y_end, 0.2)
 
 	if( abs(position_bar_y - position_bar_y_end) <= 5 ){
@@ -17,7 +17,7 @@ if(start_dialog){
 
 	if(can_display_text){
 		if(! is_waiting_for_keypressed){
-			if(delta_time mod 10 == 0){
+			if(delta_time mod 5 == 0){
 				character_index += 1
 				audio_play_sound(sdDialogVoice1,2,false)
 			}

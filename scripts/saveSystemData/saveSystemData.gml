@@ -1,11 +1,12 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
-function saveSystemData(SaveFileName,Language, Music, Effects){
+function saveSystemData(SaveFileName,Language, Master, Music, Effects){
 	
 	var _systemSaveData = array_create(0) //initial
 	
 	var _saveEntity={
 		Language : Language,
+		Master : Master,
 		Music : Music,
 		Effects : Effects
 	}

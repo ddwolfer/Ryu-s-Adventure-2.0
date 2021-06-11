@@ -14,6 +14,8 @@ function button_group_init(){
 	var group = ds_map_create()
 	group[?"button"] = arg
 	group[?"cursor"] = 0
+	group[?"lock"] = false
+	group[?"enable"] = true
 	//left right or up down
 	if(groupDirection == 0){
 		group[?"direction"] = 0
