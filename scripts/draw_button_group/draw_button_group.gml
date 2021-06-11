@@ -45,14 +45,14 @@ function draw_button_group(argument0, argument1, argument2, MoveSound) {
 				var Button = ButtonGroup[i]
 				//mouse
 				if( MX >= Button[?"x1"] && MX <=Button[?"x2"] && MY >= Button[?"y1"] && MY <= Button[?"y2"]){
-					if(i!= group[?"cursor"]){audio_play_sound(sdMenu,2,false)}
+					//if(i!= group[?"cursor"]){audio_play_sound(sdMenu,2,false)}
 					group[?"cursor"] = i
 				}
 				ButtonGroup[i] = Button
 			}
 		}
 	
-		for( var i = 0 ; i < array_length_1d(ButtonGroup) ; i++ ){
+		for( var i = 0 ; i < array_length(ButtonGroup) ; i++ ){
 			var Button = ButtonGroup[i]
 
 			if(i != group[?"cursor"]) Button[?"cursor"] = 0
@@ -63,7 +63,7 @@ function draw_button_group(argument0, argument1, argument2, MoveSound) {
 	}
 	
 	//draw
-	for( var i = 0 ; i < array_length_1d(ButtonGroup) ; i++ ){
+	for( var i = 0 ; i < array_length(ButtonGroup) ; i++ ){
 		var Button = ButtonGroup[i]
 	
 		DrawX1 = Button[?"x1"]

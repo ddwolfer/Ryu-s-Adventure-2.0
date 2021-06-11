@@ -50,7 +50,12 @@ switch(screen){
 			LanguageButtonGroup[?"enable"] = true
 		}else{LanguageButtonGroup[?"enable"] = false}	
 		draw_set_halign(fa_left)
+		if( leftMenu or rightMenu or mouse_check_button_pressed(mb_left) ){
+			LanguageButtonGroup[?"lock"] = false
+			audio_play_sound(sdMenu,2,false)
+		}
 		draw_button_group(LanguageButtonGroup,c_gray,c_white, sdMenu)
+		LanguageButtonGroup[?"lock"] = true
 		#endregion
 		break
 }
