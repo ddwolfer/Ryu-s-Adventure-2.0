@@ -17,7 +17,7 @@ function platformCheck() {
 	    platformTarget = 0;
 	}
 
-	if (instance_exists(platformTarget)) {
+	/*if (instance_exists(platformTarget)) {
 	    if (platformTarget) {
 	        if (place_meeting(x, y + 1, platformTarget) && !place_meeting(x, y, platformTarget)) {
 	            //Platform below
@@ -27,7 +27,7 @@ function platformCheck() {
 	            platformTarget = 0;
 	    }
 	} else
-	    platformTarget = 0;
+	    platformTarget = 0;*/
     
 	if (yVelo > 0) {
 	    with (oParentMain) {
