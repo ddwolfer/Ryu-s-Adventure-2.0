@@ -1,7 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-if( place_meeting(x,y,oPlayer) ){
+if( place_meeting(x,y,oRyu) ){
 	start_dialog = true
 	IN_DIALOG = true
 }

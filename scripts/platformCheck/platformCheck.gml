@@ -50,6 +50,4 @@ function platformCheck() {
 
 	platformTarget = 0;
 	return false;
-
-
 }
