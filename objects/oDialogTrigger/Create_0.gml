@@ -32,15 +32,17 @@ picX			=	( picX1 + picX2 ) / 2
 picY1			=	(borderheight - pictureSize)/2 + borderY1
 picY2			=	picY1 + pictureSize
 picY			=	( picY1 + picY2 ) / 2
-showPic			=	true
+showPic			=	false
 
 //name position
 nameX			=	( picX1 + picX2 )	  / 2
 nameY			=	( picY2 + borderY2 )  / 2
-showName		=	true
 
 //textbox position
-textboxX1		=	borderwidth * 0.04	+	picX2
+if(showPic)
+	textboxX1	=	borderwidth * 0.04	+	picX2
+else
+	textboxX1	=	picX1
 textboxX2		=	borderwidth * 0.95	+	borderX1
 textboxY1		=	borderheight * 0.15	+	borderY1
 textboxY2		=	borderheight * 0.85	+	borderY1
@@ -52,9 +54,6 @@ textSeg			=	array_create()
 textSeg[0]		=	1
 textLineCount	=	3
 textYSpace		=	textboxHeight / textLineCount
-showText		=	true
-
-
 
 #endregion
 

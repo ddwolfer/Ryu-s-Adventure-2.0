@@ -1,28 +1,31 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-
-
-
 if( start_dialog ){
 	draw_set_font(DialogFont)
-	//backfround
+	//background
 	draw_set(c_black, 0.75)
 	draw_rectangle(borderX1,borderY1,borderX2,borderY2,false)
-
+	draw_reset()
+	
+	//picture and name
+	if(showPic){
+		//background
+		draw_set(c_gray, 0.5)
+		draw_rectangle(picX1,picY1,picX2,picY2,false)
+		draw_reset()
+		//picture
+		draw_sprite_ext(pictures[message_index], 0, picX, picY, 1, 1, 0, -1, 1)
+	
+		//name
+		draw_set_allign(fa_center, fa_center)
+		draw_text_transformed(nameX,nameY,names[message_index],0.8,0.8,0)
+	}
+	
+	//background
 	draw_set(c_gray, 0.5)
 	draw_rectangle(textboxX1,textboxY1,textboxX2,textboxY2,false)
-
-	draw_set(c_gray, 0.5)
-	draw_rectangle(picX1,picY1,picX2,picY2,false)
-
 	draw_reset()
-	//picture
-	draw_sprite_ext(pictures[message_index], 0, picX, picY, 1, 1, 0, -1, 1)
-	
-	//name
-	draw_set_allign(fa_center, fa_center)
-	draw_text_transformed(nameX,nameY,names[message_index],0.8,0.8,0)
 	
 	//text
 	draw_set_allign(fa_left ,fa_center)
@@ -55,9 +58,6 @@ if( start_dialog ){
 			
 		}
 	}
-	
-	//show_debug_message(string(textboxWidth)+"有多長:" +string( string_width( _text )))
-	
 	
 	// next dialog
 	if(wait_keypressed){
