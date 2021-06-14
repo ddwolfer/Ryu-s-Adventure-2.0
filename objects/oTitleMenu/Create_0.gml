@@ -79,6 +79,7 @@ LanguageButton[1] = button_box_init("繁體中文",MenuFont_X + Langeage_Space,M
 LanguageButtonGroup = button_group_init(LanguageButton[0], LanguageButton[1], 0)
 LanguageButtonGroup[?"enable"] = false
 LanguageButtonGroup[?"lock"] = true
+LanguageButtonGroup[?"cursor"] = global.locale
 
 //variable for controll view
 enum menu_screen { //which page now

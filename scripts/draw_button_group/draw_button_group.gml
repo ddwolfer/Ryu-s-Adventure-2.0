@@ -73,7 +73,7 @@ function draw_button_group(argument0, argument1, argument2, MoveSound) {
 		centerX = (DrawX1 + DrawX2)/2
 		centerY = (DrawY1 + DrawY2)/2
 	
-		if( Button[?"cursor"] == 1 && group[?"enable"] ){
+		if( group[?"cursor"] == i && group[?"enable"] ){
 			draw_set_color(argument2)
 			//draw_rectangle(DrawX1, DrawY1, DrawX2, DrawY2, 0)
 		}else{

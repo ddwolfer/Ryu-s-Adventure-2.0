@@ -8,3 +8,5 @@ options_music,Music : ,音樂 :
 options_sfx,SFX : ,音效 : 
 options_language,Language : ,語言 : 
 options_backtoMenu,Back to Menu,回到主選單
+dialog_test,Hello! it's a dialog test text~ Hello! it's a dialog test text~ Hello! it's a dialog test text~ Hello! it's a dialog test text~ Hello! it's a dialog test text~ Hello! it's a dialog test text~ Hello! it's a dialog test text~ ,呦! 這是對話框的測試文字喔~呦! 這是對話框的測試文字喔~呦! 這是對話框的測試文字喔~呦! 這是對話框的測試文字喔~呦! 這是對話框的測試文字喔~呦! 這是對話框的測試文字喔~
+dialog_next,NEXT >,下一段 >
