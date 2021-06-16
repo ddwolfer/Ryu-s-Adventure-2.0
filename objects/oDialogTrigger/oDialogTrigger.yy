@@ -28,11 +28,11 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "Dialog",
+    "path": "folders/Objects/Dialog.yy",
   },
   "resourceVersion": "1.0",
-  "name": "oDialogTEST",
+  "name": "oDialogTrigger",
   "tags": [],
   "resourceType": "GMObject",
 }

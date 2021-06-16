@@ -29,7 +29,7 @@ switch(screen){
 		vol_line_X = 30
 		#region //option screen
 		switch( OptionsButtonGroup[?"cursor"] ){
-			case 0: //master
+			case 1: //master
 				#region master controll code
 				masterSlideBar[?"enable"] = true
 				//controller
@@ -47,7 +47,7 @@ switch(screen){
 				
 				#endregion
 				break
-			case 1: //music
+			case 2: //music
 				#region music controll code
 				musicSlideBar[?"enable"] = true
 				//controller
@@ -64,7 +64,7 @@ switch(screen){
 				musicSlideBar[?"enable"] = false
 				#endregion
 				break
-			case 2: //SFX
+			case 3: //SFX
 				#region SFX controll code
 				SFXSlideBar[?"enable"] = true
 				//controller
@@ -81,7 +81,7 @@ switch(screen){
 				SFXSlideBar[?"enable"] = false
 				#endregion
 				break
-			case 3: //Language
+			case 4: //Language
 				#region Language controll code
 				
 				global.locale = LanguageButtonGroup[?"cursor"]
@@ -93,7 +93,7 @@ switch(screen){
 				break
 		}
 		
-		if( button_group_click(OptionsButtonGroup) == 4 ){ // Back Button
+		if( button_group_click(OptionsButtonGroup) == 5 ){ // Back Button
 			audio_play_sound(sdMenuComfirm,2,false)
 			//code
 			saveSystemData(SystemFileName,global.locale,MASTER_VOLUME,MUSIC_VOLUME,SOUND_VOLUME)
