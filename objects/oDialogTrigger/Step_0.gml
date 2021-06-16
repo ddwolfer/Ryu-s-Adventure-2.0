@@ -29,8 +29,11 @@ if( start_dialog ){
 			dialog_next()
 			textspeedUp = false
 			if( dialog_end() ){
-				dialog_reset()
-				//instance_destroy(id)
+				if(loop){
+					dialog_reset()
+				}else{
+					instance_destroy(id)
+				}
 			}
 		}
 	}

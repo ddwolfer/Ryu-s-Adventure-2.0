@@ -16,6 +16,7 @@ start_dialog	=	true
 wait_keypressed	=	false
 DialogFontSize	=	20
 DialogFont		=	font_add("Chinese.ttf", DialogFontSize, false, false, 32, 128);
+loop			=	true
 
 //border position
 borderX1		=	view_get_wport(view_camera[0]) * 0.2

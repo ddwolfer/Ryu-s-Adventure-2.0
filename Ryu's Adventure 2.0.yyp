@@ -1,6 +1,7 @@
 {
   "resources": [
     {"id":{"name":"entityStep","path":"scripts/entityStep/entityStep.yy",},"order":2,},
+    {"id":{"name":"oMenuInGame","path":"objects/oMenuInGame/oMenuInGame.yy",},"order":1,},
     {"id":{"name":"sBlock","path":"sprites/sBlock/sBlock.yy",},"order":1,},
     {"id":{"name":"oSoundController","path":"objects/oSoundController/oSoundController.yy",},"order":1,},
     {"id":{"name":"play_music","path":"scripts/play_music/play_music.yy",},"order":3,},
